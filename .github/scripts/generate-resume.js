@@ -125,18 +125,13 @@ function generateTxt(cv, lang = 'en') {
 // Section heading: large, bold, black, thick black bottom border
 function heading(text) {
   return new Paragraph({
+    keepNext: true,
     children: [new TextRun({ text, bold: true, size: 30, color: TEXT })],
     spacing: { before: 280, after: 100 },
     border: {
       bottom: { style: BorderStyle.SINGLE, size: 12, color: TEXT, space: 4 },
     },
   });
-}
-
-// Plain paragraph
-function p(runs, spacingAfter = 80) {
-  const children = Array.isArray(runs) ? runs : [new TextRun({ text: runs, size: 20, color: TEXT })];
-  return new Paragraph({ children, spacing: { after: spacingAfter } });
 }
 
 // Bullet item
@@ -175,25 +170,23 @@ function generateDocx(cv, lang = 'en') {
     );
   }
 
-  // ── Contacts — label only ──
   if (cv.contacts?.length) {
     for (const c of cv.contacts) {
-      const display = c.url
+      const display = (c.url ?? '')
         .replace(/^mailto:/, '')
         .replace(/^https?:\/\/(www\.)?/, '')
         .replace(/\/$/, '');
+      const runs = [new TextRun({ text: c.label, bold: true, size: 20, color: TEXT })];
+      if (display && display !== c.label) {
+        runs.push(new TextRun({ text: `  —  ${display}`, size: 20, color: MUTED }));
+      }
       children.push(
         new Paragraph({
-          children: [
-            new TextRun({ text: c.label, bold: true, size: 20, color: TEXT }),
-            new TextRun({ text: '  —  ', size: 20, color: LIGHT }),
-            new TextRun({ text: display, size: 20, color: MUTED }),
-          ],
+          children: runs,
           spacing: { after: 40 },
         }),
       );
     }
-    children.push(p('', 120));
   }
 
   // ── About ──
@@ -211,7 +204,6 @@ function generateDocx(cv, lang = 'en') {
   if (cv.achievements?.length) {
     children.push(heading(tr.achievements));
     for (const a of cv.achievements) children.push(bullet(a));
-    children.push(p('', 80));
   }
 
   // ── Skills ──
@@ -230,16 +222,17 @@ function generateDocx(cv, lang = 'en') {
         }),
       );
     }
-    children.push(p('', 80));
   }
 
   // ── Experience ──
   if (cv.experience?.length) {
     children.push(heading(tr.experience));
     for (const exp of cv.experience) {
+      const description = Array.isArray(exp.description) ? exp.description : [];
       // Company — role (both accent color)
       children.push(
         new Paragraph({
+          keepNext: true,
           children: [
             new TextRun({ text: exp.company ?? '', bold: true, size: 24, color: ACCENT }),
             ...(exp.role ? [new TextRun({ text: ` — ${exp.role}`, size: 22, color: ACCENT })] : []),
@@ -251,15 +244,14 @@ function generateDocx(cv, lang = 'en') {
       // Period
       children.push(
         new Paragraph({
+          keepNext: description.length > 0 || Boolean(exp.stack?.length),
           children: [new TextRun({ text: cleanPeriod(exp.period), size: 19, color: LIGHT, italics: true })],
           spacing: { after: 60 },
         }),
       );
 
       // Bullets
-      if (Array.isArray(exp.description)) {
-        for (const d of exp.description) children.push(bullet(d));
-      }
+      for (const d of description) children.push(bullet(d));
 
       // Stack — indented, italic, light
       if (exp.stack?.length) {
@@ -280,6 +272,7 @@ function generateDocx(cv, lang = 'en') {
     for (const e of cv.education) {
       children.push(
         new Paragraph({
+          keepNext: Boolean(e.period),
           children: [
             new TextRun({ text: e.institution ?? '', bold: true, size: 22, color: ACCENT }),
             ...(e.degree ? [new TextRun({ text: ` — ${e.degree}`, size: 20, color: TEXT })] : []),
@@ -296,7 +289,6 @@ function generateDocx(cv, lang = 'en') {
         );
       }
     }
-    children.push(p('', 80));
   }
 
   // ── Languages ──
@@ -346,14 +338,14 @@ function generateDocx(cv, lang = 'en') {
       default: {
         document: {
           run: { font: 'Calibri', size: 20, color: TEXT },
-          paragraph: { spacing: { line: 276 } },
+          paragraph: { spacing: { line: 264 } },
         },
       },
     },
     sections: [{
       properties: {
         page: {
-          margin: { top: 900, right: 900, bottom: 900, left: 900 },
+          margin: { top: 720, right: 720, bottom: 720, left: 720 },
         },
       },
       children,

@@ -4,7 +4,7 @@
  * Created by Alexander Gusarov on 04.03.2026.
  * @spartan121
  *
- * Reads src/content/cv/en.yaml and ru.yaml,
+ * Reads the merged CV YAML from public/cv/,
  * builds a clean two-column print HTML and exports PDF via Playwright.
  * Also renders a second, single-column ATS-safe PDF from the same data —
  * see htmlAts() below.
@@ -75,12 +75,15 @@ function cleanPeriod(period = '') {
     .trim();
 }
 
+function contactHtml({ label, url }) {
+  return url ? `<a href="${esc(url)}">${esc(label)}</a>` : esc(label);
+}
+
 function html(cv, lang = 'en') {
   const tr = T[lang] ?? T.en;
 
-  /* ── Contacts: label as clickable link, URL hidden ── */
   const contactsHtml = (cv.contacts ?? [])
-    .map(c => `<div class="contact-row"><a href="${esc(c.url)}">${esc(c.label)}</a></div>`)
+    .map(c => `<div class="contact-row">${contactHtml(c)}</div>`)
     .join('');
 
   /* ── Education ── */
@@ -428,7 +431,7 @@ function htmlAts(cv, lang = 'en') {
 
   const contactsHtml = (cv.contacts ?? []).length ? `
     <div class="contacts">
-      ${(cv.contacts ?? []).map(c => `<a href="${esc(c.url)}">${esc(c.label)}</a>`).join('<span class="sep">·</span>')}
+      ${cv.contacts.map(contactHtml).join('<span class="sep">·</span>')}
     </div>` : '';
 
   const aboutHtml = cv.summary ? `
@@ -497,7 +500,7 @@ function htmlAts(cv, lang = 'en') {
       font-weight: 400;
       color: #1a1a1a;
       background: #fff;
-      line-height: 1.4;
+      line-height: 1.28;
     }
 
     a { color: inherit; text-decoration: underline; }
@@ -520,9 +523,10 @@ function htmlAts(cv, lang = 'en') {
 
     .contacts .sep { margin: 0 6px; }
 
-    .section { margin-top: 16px; }
+    .section { margin-top: 12px; }
 
     .section h2 {
+      break-after: avoid;
       font-size: 13pt;
       font-weight: 700;
       text-transform: uppercase;
@@ -536,8 +540,8 @@ function htmlAts(cv, lang = 'en') {
 
     .skill-line { font-size: 11pt; }
 
-    .entry { margin-bottom: 10px; }
-    .entry-head { break-inside: avoid; }
+    .entry { margin-bottom: 8px; }
+    .entry-head { break-inside: avoid; break-after: avoid; }
     .entry-stack { font-style: italic; color: #333; font-size: 10.5pt; }
 
     ul { padding-left: 18px; margin: 3px 0 6px; }
@@ -599,7 +603,7 @@ async function run() {
       path:            outPathAts,
       format:          'A4',
       printBackground: true,
-      margin:          { top: '18mm', right: '18mm', bottom: '18mm', left: '18mm' },
+      margin:          { top: '14mm', right: '14mm', bottom: '14mm', left: '14mm' },
     });
 
     console.log(`✔ ${outPathAts}`);

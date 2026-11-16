@@ -10,7 +10,7 @@
 //  every unmatched path regardless of language — there is no way to know the
 //  visitor's intended language at this point, so `lang` stays the site
 //  default. <Layout> already renders the full <html>/<head>/<body> document
-//  (meta, canonical, nav, footer) — this page must not wrap it in a second
+//  (meta, canonical, language switcher) — this page must not wrap it in a second
 //  one.
 //
 
@@ -32,7 +32,7 @@ const subtitle = t('notfound404.subtitle');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout title={title} lang={lang} section="main" profile={profile} noindex>
+<Layout title={title} lang={lang} profile={profile} noindex>
   <section class="container">
     <div class="h0">404</div>
     {subtitle && <p class="muted">{subtitle}</p>}

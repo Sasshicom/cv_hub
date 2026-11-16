@@ -22,11 +22,12 @@
 git clone https://github.com/YOUR_ACCOUNT/cv_hub.git
 cd cv_hub
 npm install
+npx playwright install chromium --only-shell
 npm run init      # wipe the example CV/portfolio, start from a blank placeholder
 npm run dev
 ```
 
-Open `http://localhost:4321`. Edit `src/content/cv/en.yaml`. Push — site deploys automatically.
+Open `http://localhost:4321` for English or `/ru` for Russian. Edit `src/content/cv/en.yaml` or `src/content/cv/ru.yaml`. `npm run dev` generates the downloadable resumes before starting Astro. Run `npm run resume:build` to refresh them while the dev server is running. On Linux, use `npx playwright install-deps chromium` if your system is missing Chromium libraries.
 
 `npm run init` is optional but recommended on a fresh fork — it clears this repo's own CV, showcase and case-study data (backed up locally first, never touches git history) and reseeds it from `docs/examples/*`, so you're editing a blank placeholder instead of someone else's resume. Safe to skip if you'd rather study the real example content first.
 

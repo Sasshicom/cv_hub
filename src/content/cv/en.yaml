@@ -1,178 +1,141 @@
-name: Alexander Gusarov
-title: Software Engineer — DevOps · Fullstack · GameDev
+name: Ksenia Vadimovna Kharichkova
+title: Event Marketing Specialist
+location: Novosibirsk
+summary: >-
+  I have over five years of experience organizing events and managing projects. I develop
+  event concepts and programs, plan event calendars, and bring in partners, speakers, and
+  participants. I handle pre- and post-event communications, including announcements,
+  visuals, and event recaps for social media. I have organized city and district events,
+  festivals, and educational and business gatherings.
 
-summary: >
-  Software engineer with 14+ years across DevOps, fullstack and game development.
-  Managed infrastructure for 750+ servers, shipped products with 100M+ users,
-  built everything from CI/CD pipelines to multiplayer backends.
-  I close the full cycle — architecture, code, deployment — and I actually enjoy all of it.
+
+  As part of the core organizing team for the Cinema on the Grass festival, I ran the
+  main-stage program. I selected bands and speakers, worked with partners, and coordinated
+  participants. The festival drew more than 1,000 attendees. I also helped organize the
+  Made in Siberia and Created by Youth events.
+
+
+  I have worked with FC Sibir, HC Sibir, Samokat, Alfa-Bank, the Novosibirsk Mayor's Office,
+  the Novosibirsk Region Department of Youth Policy, and the regional Children's Rights
+  Commissioner. I have also worked with venues, rental companies, technical crews,
+  photographers, videographers, print shops, and caterers.
+
+
+  Based in Novosibirsk and seeking full-time work. Open to on-site, hybrid, and remote roles.
 
 contacts:
-  - label: Email
-    url: mailto:spartan.dgs.121@icloud.com
-  - label: GitHub
-    url: https://github.com/KeeGooRoomiE
-  - label: Telegram
-    url: https://t.me/spartan121
-  - label: Upwork
-    url: https://www.upwork.com/freelancers/~01764e57e0646f2fbf
-  - label: LinkedIn
-    url: https://www.linkedin.com/in/alexander-gusarov-4a08911a2/
-  - label: Habr
-    url: https://career.habr.com/xandergusarov
-
-achievements:
-  - Operated and automated infrastructure for 750+ Linux servers (Selectel VPS and bare metal) with 99.9% uptime
-  - Reduced deploy time from 8 to 2 minutes (−75%) and AWS costs from $550 to $300/month
-  - Sand Balls — contributed to a mobile game with 100M+ downloads and top App Store rankings
-  - Bhop Jump — built multiplayer backend generating $160K+ revenue in the first quarter
-  - Lana and Ronen — 1M+ downloads mobile title
-  - Upwork Top Rated Plus — top 5% of freelancers with 20+ successful projects
+  - label: +7 (913) 388-63-73
+    url: ""
+  - label: ksu98ngs.ru@yandex.ru
+    url: mailto:ksu98ngs.ru@yandex.ru
+  - label: "@ksushinsun"
+    url: https://t.me/ksushinsun
 
 skills:
-  - group: Languages
-    items: [Go, C#, JavaScript, TypeScript, Dart, Swift, Java, GML]
-
-  - group: Backend & APIs
-    items: [Node.js, REST APIs, WebSockets, microservices, EF Core]
-
-  - group: Frontend
-    items: [React, Angular, HTML, CSS, Tailwind]
-
-  - group: DevOps & Infrastructure
-    items: [Kubernetes, Helm, Docker, Terraform, Ansible, GitLab CI, GitHub Actions, Jenkins]
-
-  - group: Cloud
-    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB, Yandex Cloud, Selectel]
-
-  - group: Observability
-    items: [Prometheus, VictoriaMetrics, Grafana, Loki, Alertmanager, CloudWatch]
-
-  - group: Databases
-    items: [PostgreSQL, ClickHouse, MySQL, MongoDB, Redis, RabbitMQ]
-
-  - group: Game Development
-    items: [Unity, GameMaker, multiplayer systems, monetization, game design]
-
-  - group: Platforms
-    items: [Linux, Web, iOS, Android, macOS]
-
-  - group: Languages (spoken)
-    items: [Russian — Native, English — IELTS 7.0 (B2)]
+  - group: Events
+    items:
+      - Event organization
+      - Event management
+      - Event concept development
+      - Script and program development
+      - Business and educational event planning
+      - Participant and speaker outreach
+  - group: Project work
+    items:
+      - Project management
+      - Calendar planning
+      - Project budgeting
+      - Team and participant coordination
+      - Organizational skills
+      - Teamwork
+      - Grant writing
+  - group: Communications and social media
+    items:
+      - Event communications
+      - Social media management
+      - Event announcements and recaps
+      - Internal and external communications
+      - Presentation development
+      - Content development for informational materials
+  - group: Partners and vendors
+    items:
+      - Partner sourcing and outreach
+      - Vendor coordination
+      - Business correspondence and negotiation
+  - group: Analysis and research
+    items:
+      - Data analysis
+      - Analytical reporting
+      - Social research
 
 experience:
-
-  - company: InfoScale
-    role: DevOps Engineer / Software Engineer
-    period: Dec 2024 — Jan 2026
+  - company: Sodruzhestvo Municipal Youth Center
+    role: Team Engagement Specialist
+    period: February 2026 — Present
     description:
-      - Monitored and maintained 750+ Linux servers (Selectel VPS and bare metal)
-        — network interfaces, ports, access management, incident response
-      - Managed Kubernetes clusters on Yandex Cloud and self-hosted
-        (GitLab, Matrix, Keycloak, Vault); wrote and maintained Helm charts
-      - Built Terraform infrastructure for ~20 AWS services ($550 → $300/month);
-        wrote custom modules, provisioned ClickHouse; Ansible for per-instance configuration
-      - Optimized CI/CD across multiple repos (GitHub Actions + GitLab CI);
-        unified pipeline structure reduced deploy time from 8 to 2 minutes
-      - Built observability stack from scratch — VictoriaMetrics probes, Prometheus alerting,
-        custom Grafana dashboards; Alertmanager integrated with Telegram and Matrix
-      - Designed and developed SaaS monitoring service end-to-end (Go + Gin/GORM + React)
-        — ping, domain, SSL checks with configurable intervals (10s–24h); deployed in-cluster on Kubernetes
-      - Responded to SSH brute-force attacks via KVM live access,
-        port blocking, user rotation, and timeout configuration
-      - Grew infrastructure team from 3 to 6 engineers; mentored 3 junior members
-    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, Yandex Cloud, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
+      - Manage the center's social media and internal communications. Create presentations,
+        digests, and informational materials. Help develop its brand and organizational culture.
+      - Develop concepts for educational and social events for staff, and plan and coordinate
+        internal activities.
+      - Coordinate work across teams in 10 departments of the youth center and work with its
+        partners.
+      - Conduct research, analyze department operations, and prepare analytical materials and
+        documentation.
 
-  - company: SOFTINTERMOB
-    role: Unity Developer
-    period: Nov 2023 — Jul 2024
+  - company: Sodruzhestvo Municipal Youth Center, Sever Teen Center
+    role: Youth Social Work Specialist
+    period: December 2024 — February 2026
     description:
-      - Built two mobile applications from Figma designs to App Store release — full cycle
-      - Integrated Firebase and third-party SDKs, resolved compatibility issues on iOS/Android
-      - Refactored legacy codebase, improved stability and performance
-    stack: [Unity, C#, Firebase, iOS, Android]
+      - Conceived and led the Kasayetsya social theater festival. Developed the concept and
+        educational and entertainment programs, brought in theater groups and partners, and
+        assembled the organizing team.
+      - Won a RUB 584,995 grant for the festival from the Movement of the First.
+      - Developed and implemented the Sever Teen Center concept from scratch.
+      - Managed social media coverage for events, creating announcements and visuals and
+        publishing event recaps.
+      - Organized citywide and local cultural, educational, volunteer, and prevention-focused
+        events. Developed concepts, scripts, and programs, recruited participants and speakers,
+        and coordinated the team.
+      - Worked with institutions, organizations, and public authorities. Prepared
+        documentation and reports.
 
-  - company: AZNResearch
-    role: Fullstack Developer
-    period: Jul 2022 — Oct 2023
+  - company: Moshkovo District Department of Culture and Youth Policy, District Youth Center
+    role: Youth Work Specialist
+    period: May 2023 — December 2024
     description:
-      - Designed frontend architecture for internal government and enterprise products using Angular + Tailwind
-      - Developed backend microservices with .NET Core + EF Core, REST APIs and LINQ queries
-      - Introduced Git workflow, code reviews and CI pipelines, boosted team productivity by 25%
-    stack: [Angular, Tailwind, C#, .NET Core, SQL Server, MySQL]
+      - Planned the events calendar and organized district and local cultural, educational,
+        volunteer, and prevention-focused events.
+      - Managed social media and created pre- and post-event communications, including
+        announcements and recaps.
+      - Recruited partners from educational institutions, nonprofits, and public authorities
+        and developed those relationships. Supported youth initiatives and coordinated project
+        teams and volunteers.
+      - Wrote analytical reports and maintained documentation.
+      - Won a RUB 129,393 Rosmolodezh grant for the Podderzhka Social Volunteer Community.
+      - Placed first in the Youth Work Specialist category of a professional skills competition
+        for youth policy staff in the city and region of Novosibirsk.
+      - Qualified as a trainer in non-formal education and as a facilitator.
 
-  - company: Neosight
-    role: Game Designer
-    period: Nov 2021 — Feb 2022
+  - company: A. P. Chekhov Municipal Youth Center, Impuls Unit
+    role: Youth Work Specialist
+    period: August 2021 — May 2023
     description:
-      - Wrote GDDs for 6 mobile games — core mechanics, monetization, progression systems
-      - Ran concept validation experiments, grew installs 30x, CTR from 0.4% to 5%
-      - Balanced levels and game curves using retention, difficulty and drop-off metrics
-    stack: [Unity, Game Design, Analytics]
-
-  - company: Udemy
-    role: Unity Developer
-    period: Mar 2021 — Oct 2021
-    description:
-      - Built a German language learning app from scratch — 22 categories, ~3000 flashcards
-      - Optimized architecture and data storage, reduced app size from ~3GB to 400MB
-    stack: [Unity, C#, JSON, iOS, Android]
-
-  - company: Popside Games
-    role: Level Designer
-    period: Jul 2020 — Oct 2020
-    description:
-      - Designed and balanced 3000+ levels for Match-3 and Solitaire under tight production schedule
-      - Improved level completion rate by 15% through iterative testing
-    stack: [Game Design, Level Design]
-
-  - company: SayGames
-    role: Game Designer
-    period: Feb 2020 — Jun 2020
-    description:
-      - Designed mechanics and levels for hyper-casual prototypes
-      - Contributed to Sand Balls (100M+ downloads) and FlowerKing
-      - Improved D1-retention by 10% through retention/drop-off metric iterations
-    stack: [Game Design, Unity]
-
-  - company: Goodline
-    role: Software Engineer
-    period: Nov 2019 — Jan 2020
-    description:
-      - Developed and adapted internal React interfaces for mobile devices
-      - Improved performance by 25% through component optimization
-    stack: [React, JavaScript]
-
-  - company: Project Tech
-    role: Software Engineer / Co-Founder
-    period: Feb 2017 — Oct 2019
-    description:
-      - Co-founded a development studio — hired developers, negotiated with clients, signed contracts
-      - Acted as second engineer and tech lead — architecture decisions through to production code
-      - Shipped 10+ products — games, mobile apps and business software for restaurants, delivery services and VR
-      - Built multiplayer backend for Bhop Jump with a team of two — P2P + dedicated servers up to 16 players, $160K revenue in Q1
-      - Pitched publishing deals to indie developers — early experience in product and business development
-    stack: [Unity, C#, React, React Native, Xamarin, Node.js, WebSockets, Docker, VR]
+      - Organized citywide and local educational and cultural events and developed and
+        delivered social projects.
+      - Helped open the Cherdak youth space and organized its activities. Coordinated a
+        volunteer team.
+      - Recruited partners and worked with educational institutions, nonprofits, and local
+        government.
+      - Organized inclusive activity areas, including at the Novosibirsk Region's Proregion
+        Youth Forum. Won a RUB 100,000 APMI grant for the inclusive project Ezhevika.
+      - Managed social media and created event announcements, recaps, and visuals. Planned
+        event calendars, wrote analytical reports, and maintained documentation.
+      - Published an original article in the journal Inspector for Juvenile Affairs.
 
 education:
-  - institution: Udemy
-    degree: Linux Foundation Computer Science
-    period: "2025"
-
-  - institution: Udemy
-    degree: Certified Kubernetes Administrator
-    period: "2025"
-
-  - institution: Wargaming Forge
-    degree: Level Designer & Balancing
-    period: "2020"
-
-  - institution: Siberian Polytechnic University
-    degree: Faculty of Information Technology
-    period: 2017–2018
-
-languages:
-  - language: Russian
-    level: Native
-  - language: English
-    level: IELTS 7.0 (B2)
+  - institution: Novosibirsk State Technical University
+    degree: Institute of Social Technologies, Organization and Management in Social Work
+    period: Expected graduation in 2030
+  - institution: Novosibirsk Regional College of Culture and Arts
+    degree: Social and Cultural Activities
+    period: "2022"

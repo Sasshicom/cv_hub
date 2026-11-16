@@ -171,8 +171,7 @@ a:hover { text-decoration: underline; }
 .header__row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: flex-end;
 }
 
 .brand {
@@ -487,10 +486,8 @@ a:hover { text-decoration: underline; }
 }
 
 .item__top {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  gap: 4px;
 }
 
 .row { margin-top: 12px; }
@@ -608,7 +605,7 @@ a:hover { text-decoration: underline; }
   transition: background var(--t), border-color var(--t), transform var(--t);
 }
 
-.pill:hover {
+a.pill:hover {
   border-color: rgba(var(--accent-rgb) / 0.28);
   background: rgba(var(--accent-rgb) / 0.10);
   text-decoration: none;

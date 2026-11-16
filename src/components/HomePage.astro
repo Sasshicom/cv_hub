@@ -79,8 +79,14 @@ const downloads = downloadGroups
   }))
   .filter((g) => g.items.length > 0);
 
+const allDownloads = downloads.flatMap((group) => group.items);
+const primaryDownload = allDownloads.find((download) => download.key === 'pdf') ?? allDownloads[0];
+const otherDownloads = allDownloads.filter((download) => download !== primaryDownload);
+const formatLabel = (download) => download.key === 'pdfAts' ? t2('cv.pdf_ats') : download.label;
+
 const pageTitle = [data?.name || t.nameFallback, data?.title].filter(Boolean).join(' — ');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const portrait = `${base}/media/resume-portrait.jpg`;
 
 const contacts     = Array.isArray(data?.contacts)    ? data.contacts    : [];
 const rawSkills    = Array.isArray(data?.skills)      ? data.skills      : [];
@@ -109,6 +115,8 @@ const skillGroups = rawSkills
 // supplies the person-specific fields. sameAs wants profile URLs (GitHub,
 // LinkedIn, ...), not a mailto: link, so email is split out separately.
 const emailContact = contacts.find((c) => /^mailto:/i.test(c?.url ?? ''));
+const telegramContact = contacts.find((c) => c?.url?.startsWith('https://t.me/'));
+const quickContact = telegramContact ?? emailContact;
 const profileContacts = contacts.filter((c) => /^https?:\/\//i.test(c?.url ?? ''));
 const personJsonLd = data?.name ? {
   name: data.name,
@@ -129,7 +137,7 @@ const personJsonLd = data?.name ? {
 
         <div class="card card--portrait">
           <img
-            src={`${base}/media/resume-portrait.jpg`}
+            src={portrait}
             alt={data?.name ?? ''}
             width="853"
             height="1280"
@@ -179,29 +187,80 @@ const personJsonLd = data?.name ? {
 
         {/* 1. Hero */}
         <div class="card hero">
-          <div class="hero__top">
-            <div>
-              <h1 class="hero__name">{data?.name ?? t.nameFallback}</h1>
-              {data?.title   && <p class="hero__title">{data.title}</p>}
-              {data?.summary && <p class="hero__summary">{data.summary}</p>}
+          <div class="card hero__intro">
+            <div class="hero__top">
+              <div class="hero__portrait hero__mobile">
+                <img src={portrait} alt="" width="853" height="1280" />
+              </div>
+              <div>
+                <h1 class="hero__name">{data?.name ?? t.nameFallback}</h1>
+                {data?.title && <p class="hero__title">{data.title}</p>}
+                {data?.location && <p class="hero__location hero__mobile">{data.location}</p>}
+              </div>
             </div>
+
+            {data?.summary_short && <p class="hero__short-summary hero__mobile">{data.summary_short}</p>}
+
+            {(primaryDownload || quickContact) && (
+              <div class="hero__actions hero__mobile">
+                {primaryDownload && (
+                  <a class="btn" href={primaryDownload.url} download aria-label={primaryDownload.ariaLabel}>
+                    {primaryDownload.key === 'pdf' ? t2('cv.download_pdf_short') : formatLabel(primaryDownload)}
+                  </a>
+                )}
+                {quickContact && (
+                  <a
+                    class="btn btn--ghost"
+                    href={quickContact.url}
+                    target={telegramContact ? '_blank' : undefined}
+                    rel={telegramContact ? 'noopener' : undefined}
+                  >
+                    {telegramContact ? 'Telegram' : 'Email'}
+                  </a>
+                )}
+              </div>
+            )}
+
+            {otherDownloads.length > 0 && (
+              <details class="hero__formats hero__mobile">
+                <summary>{t2('cv.other_formats')}</summary>
+                <div class="btnrow">
+                  {otherDownloads.map((download) => (
+                    <a class="btn btn--ghost" href={download.url} download aria-label={download.ariaLabel}>
+                      {formatLabel(download)}
+                    </a>
+                  ))}
+                </div>
+              </details>
+            )}
           </div>
 
-          {contacts.length > 0 && (
-            <div class="hero__contacts">
-              <div class="section__title">{t.contacts}</div>
-              <div class="pillrow">
-                {contacts.map((c) => c.url ? (
-                  <a
-                    class="pill"
-                    href={c.url}
-                    target={c.url?.startsWith('mailto:') ? undefined : '_blank'}
-                    rel={c.url?.startsWith('mailto:')    ? undefined : 'noopener'}
-                  >
-                    {c.label}
-                  </a>
-                ) : <span class="pill">{c.label}</span>)}
-              </div>
+          {(data?.summary || contacts.length > 0) && (
+            <div class="card hero__details">
+              {data?.summary && (
+                <>
+                  <h2 class="h2 hero__mobile">{t2('cv.about')}</h2>
+                  <p class="hero__summary">{data.summary}</p>
+                </>
+              )}
+
+              {contacts.length > 0 && (
+                <div class="hero__contacts">
+                  <div class="section__title">{t.contacts}</div>
+                  <div class="pillrow">
+                    {contacts.map((c) => c.url ? (
+                      <a
+                        class="pill"
+                        href={c.url}
+                        target={c.url?.startsWith('mailto:') ? undefined : '_blank'}
+                        rel={c.url?.startsWith('mailto:')    ? undefined : 'noopener'}
+                      >
+                        {c.label}
+                      </a>
+                    ) : <span class="pill">{c.label}</span>)}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

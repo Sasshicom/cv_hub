@@ -400,28 +400,27 @@ a:hover { text-decoration: underline; }
   .grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 959px) {
+@media screen and (max-width: 959px) {
   .page-grid {
     display: flex;
     flex-direction: column;
-    /* The base rule sets align-items: flex-start, which in a grid means
-       "top-align the columns". Switching to a flex column here flips that
-       same property to the cross (horizontal) axis, where it means "shrink
-       every card to its content width" — which left the Download card
-       noticeably narrower than the ones below it. Restore stretching. */
     align-items: stretch;
   }
 
   .sidebar,
-  .main-content {
+  .main-content,
+  .hero {
     display: contents;
   }
 
-  .card--downloads   { order: 1; }
-  .card.hero         { order: 2; }
-  .card--achievements{ order: 3; }
-  .section--experience { order: 4; }
-  .card--skills      { order: 5; }
+  .sidebar > .card--portrait,
+  .sidebar > .card--downloads { display: none; }
+
+  .hero__intro { order: 1; }
+  .page-grid .section--experience { order: 2; margin-top: 0; }
+  .card--achievements { order: 3; }
+  .hero__details { order: 4; }
+  .card--skills { order: 5; }
 }
 
 
@@ -444,10 +443,6 @@ a:hover { text-decoration: underline; }
   height: auto;
   margin-inline: auto;
   border-radius: calc(var(--r-lg) * 0.65);
-}
-
-@media (max-width: 959px) {
-  .card--portrait img { max-width: 224px; }
 }
 
 .card__meta {
@@ -520,6 +515,11 @@ a:hover { text-decoration: underline; }
 
 .hero { padding: 18px; }
 
+.hero__intro,
+.hero__details { display: contents; }
+
+.hero__mobile { display: none; }
+
 .hero__top {
   display: flex;
   gap: 16px;
@@ -547,6 +547,92 @@ a:hover { text-decoration: underline; }
 }
 
 .hero__contacts { margin-top: 14px; }
+
+@media screen and (max-width: 959px) {
+  .hero__mobile { display: revert; }
+
+  .hero__intro {
+    display: grid;
+    gap: 12px;
+  }
+
+  .hero__details { display: block; }
+
+  .hero__top {
+    display: grid;
+    grid-template-columns: clamp(68px, 22vw, 96px) minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero__portrait {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: calc(var(--r-lg) * 0.65);
+  }
+
+  .hero__portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% 34%;
+    transform: scale(1.38);
+    transform-origin: 59% 35%;
+  }
+
+  .hero__name {
+    font-size: clamp(20px, 5.2vw, 24px);
+    overflow-wrap: anywhere;
+  }
+
+  .hero__title { margin-top: 5px; }
+
+  .hero__location {
+    margin: 3px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .hero__short-summary { margin: 0; }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero__intro .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .hero__actions .btn { flex: 1 1 110px; }
+
+  .hero__actions .btn[download] {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .hero__formats { border-top: 1px solid var(--border); }
+
+  .hero__formats summary {
+    min-height: 44px;
+    padding: 11px 0;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  .hero__details .hero__summary {
+    margin-top: 0;
+    white-space: pre-line;
+  }
+}
 
 
 /* ─────────────────────────────────────────────────────────────────────────────

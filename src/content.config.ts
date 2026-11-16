@@ -64,6 +64,7 @@ const cv = defineCollection({
     name: z.string().optional().default(''),
     title: z.string().optional().default(''),
     summary: z.string().optional().default(''),
+    summary_short: z.string().optional().default(''),
     contacts: z.array(linkSchema).optional().default([]),
     achievements: z.array(z.string()).optional().default([]),
     skills: z.array(cvSkillGroupSchema).optional().default([]),

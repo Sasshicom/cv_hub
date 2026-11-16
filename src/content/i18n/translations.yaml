@@ -29,6 +29,10 @@ cv:
     en: "Contacts"
     ru: "Контакты"
     zh: "联系方式"
+  about:
+    en: "About me"
+    ru: "О себе"
+    zh: "个人简介"
   skills:
     en: "Skills"
     ru: "Навыки"
@@ -49,10 +53,22 @@ cv:
     en: "Download resume as PDF"
     ru: "Скачать резюме в PDF"
     zh: "下载 PDF 简历"
+  download_pdf_short:
+    en: "Download PDF"
+    ru: "Скачать PDF"
+    zh: "下载 PDF"
   download_pdf_ats:
     en: "Download ATS-friendly PDF resume"
     ru: "Скачать PDF для систем подбора персонала"
     zh: "下载适用于 ATS 的 PDF 简历"
+  pdf_ats:
+    en: "ATS PDF"
+    ru: "PDF для ATS"
+    zh: "ATS 版 PDF"
+  other_formats:
+    en: "Other formats"
+    ru: "Другие форматы"
+    zh: "其他格式"
   download_docx:
     en: "Download resume as DOCX"
     ru: "Скачать резюме в DOCX"

@@ -1,13 +1,14 @@
 name: Ksenia Vadimovna Kharichkova
 title: Event Marketing Specialist
 location: Novosibirsk
-summary_short: Over five years of experience organizing events and managing projects.
+summary_short: Over five years of experience organizing and promoting events.
 summary: >-
   I have over five years of experience organizing events and managing projects. I develop
   event concepts and programs, plan event calendars, and bring in partners, speakers, and
   participants. I handle pre- and post-event communications, including announcements,
   visuals, and event recaps for social media. I have organized city and district events,
-  festivals, and educational and business gatherings.
+  festivals, and educational and business gatherings. My work in entertainment included
+  preparing advertising campaigns, planning social media content, and looking for sponsors.
 
 
   As part of the core organizing team for the Cinema on the Grass festival, I ran the
@@ -33,6 +34,17 @@ contacts:
     url: https://t.me/ksushinsun
 
 skills:
+  - group: Marketing and communications
+    items:
+      - Advertising campaign planning
+      - Content planning
+      - Social media content creation
+      - Social media management
+      - Event communications
+      - Event announcements and recaps
+      - Internal and external communications
+      - Presentation development
+      - Content development for informational materials
   - group: Events
     items:
       - Event organization
@@ -40,6 +52,7 @@ skills:
       - Event concept development
       - Script and program development
       - Business and educational event planning
+      - Concert organization
       - Participant and speaker outreach
   - group: Project work
     items:
@@ -50,17 +63,10 @@ skills:
       - Organizational skills
       - Teamwork
       - Grant writing
-  - group: Communications and social media
-    items:
-      - Event communications
-      - Social media management
-      - Event announcements and recaps
-      - Internal and external communications
-      - Presentation development
-      - Content development for informational materials
   - group: Partners and vendors
     items:
       - Partner sourcing and outreach
+      - Sponsor outreach
       - Vendor coordination
       - Business correspondence and negotiation
   - group: Analysis and research
@@ -132,6 +138,25 @@ experience:
       - Managed social media and created event announcements, recaps, and visuals. Planned
         event calendars, wrote analytical reports, and maintained documentation.
       - Published an original article in the journal Inspector for Juvenile Affairs.
+
+  - company: TRM Bar
+    role: Social Media Specialist, then Art Director
+    period: 2018–2020
+    description:
+      - Developed advertising campaigns, created social media content, and reached out to
+        potential sponsors.
+      - Planned and ran events at the bar.
+      - Organized concerts and worked with visiting musicians.
+      - Mentored media department interns.
+
+  - company: Hotel Live-Action Quest
+    role: Branch Manager
+    period: 2016–2018
+    description:
+      - Prepared advertising campaigns and looked for sponsors for the branch.
+      - Managed social media and created content calendars.
+      - Wrote scripts for the quests and coordinated actors and front-desk staff.
+      - Prepared work plans and handled branch reporting.
 
 education:
   - institution: Novosibirsk State Technical University

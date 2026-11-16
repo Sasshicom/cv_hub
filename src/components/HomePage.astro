@@ -80,6 +80,7 @@ const downloads = downloadGroups
   .filter((g) => g.items.length > 0);
 
 const pageTitle = [data?.name || t.nameFallback, data?.title].filter(Boolean).join(' — ');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const contacts     = Array.isArray(data?.contacts)    ? data.contacts    : [];
 const rawSkills    = Array.isArray(data?.skills)      ? data.skills      : [];
@@ -126,7 +127,16 @@ const personJsonLd = data?.name ? {
       {/* ── SIDEBAR ── */}
       <aside class="sidebar">
 
-        {/* 1. Download */}
+        <div class="card card--portrait">
+          <img
+            src={`${base}/media/resume-portrait.jpg`}
+            alt={data?.name ?? ''}
+            width="853"
+            height="1280"
+          />
+        </div>
+
+        {/* Download */}
         <article class="card card--downloads">
           <h2 class="h2">{t.downloads}</h2>
           {downloads.map((g) => (
@@ -141,7 +151,7 @@ const personJsonLd = data?.name ? {
           ))}
         </article>
 
-        {/* 2. Skills */}
+        {/* Skills */}
         <article class="card card--skills">
           <h2 class="h2">{t.skills}</h2>
           {skillGroups.length > 0 ? (

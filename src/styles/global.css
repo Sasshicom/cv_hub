@@ -437,6 +437,19 @@ a:hover { text-decoration: underline; }
   box-shadow: var(--shadow-soft);
 }
 
+.card--portrait img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: calc(var(--r-lg) * 0.65);
+}
+
+@media (max-width: 959px) {
+  .card--portrait img { max-width: 224px; }
+}
+
 .card__meta {
   font-size: 13px;
   margin-bottom: 4px;

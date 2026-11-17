@@ -45,6 +45,10 @@ const t = makeT(translations?.data ?? {}, lang);
 // literal "//" in canonical/OG URLs on every page).
 const siteUrl = (Astro.site?.toString() ?? 'http://localhost:4321/').replace(/\/$/, '');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const trackVisits = import.meta.env.PROD
+  && Astro.site?.hostname === 'sasshicom.github.io'
+  && personJsonLd
+  && !Astro.url.pathname.startsWith(`${base}/og-preview/`);
 
 const metaDescription = description ?? t('meta.description');
 const metaImage = ogImage
@@ -156,5 +160,13 @@ const jsonLdSafe = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : nu
       </header>
     )}
     <main><slot /></main>
+    {trackVisits && (
+      <script
+        is:inline
+        type="module"
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token":"9a76908c94524aaaa1dc55ae7406a7d9"}'
+      ></script>
+    )}
   </body>
 </html>
